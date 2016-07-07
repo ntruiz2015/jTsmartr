@@ -1,6 +1,5 @@
-
 <!--header/top menu-->
-<nav class="navbar navbar-default navbar-static-top">
+<nav class="navbar navbar-default navbar-static-top top-bar">
   <!-- logo & toggle button-->
   <div class="navbar-header">
     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu-toggle"
@@ -20,9 +19,123 @@
   </div>
 </nav>
 <div class="container">
-  <div class="row booking-steps">
-    <div class="col-lg-4  col-md-4  col-sm-12">Booking</div>
-    <div class="col-lg-4  col-md-4  col-sm-12">Validation</div>
-    <div class="col-lg-4  col-md-4  col-sm-12">Confirm</div>
+  <div class="row">
+    <div class="col-md-2">
+      <div class="row confirmation">
+        <div class="col-md-12"><p>Flight Info</p></div>
+        <div class="col-md-12"><p>Aircraft Details</p></div>
+        <div class="col-md-12"><p>Crew</p></div>
+        <div class="col-md-12"><p>Passengers</p></div>
+      </div>
+    </div>
+    <div class="col-md-10">
+      <div class="row booking-steps">
+        <div class="col-lg-4  col-md-4  col-sm-12 text-center">Booking</div>
+        <div class="col-lg-4  col-md-4  col-sm-12 text-center">Validation</div>
+        <div class="col-lg-4  col-md-4  col-sm-12 text-center">Confirm</div>
+      </div>
+      <div class="row flight">
+        <div class="col-md-12">FLIGHT</div>
+        <div class="col-md-12">
+
+          <div class="row">
+            <div class="col-md-6">
+              <p>MIA</p>
+
+              <div class="input-group date" data-provide="datepicker">
+                <input type="text" class="form-control">
+
+                <div class="input-group-addon">
+                  <span class="glyphicon glyphicon-calendar"></span>
+                </div>
+              </div>
+              <div class="col-md-12">
+                <p>City, State</p>
+
+                <p>BFO: info</p>
+
+                <p>Address: </p>
+
+                <p>Phone: </p>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <p>GA</p>
+
+              <div class="input-group date" data-provide="datepicker">
+                <input type="text" class="form-control">
+
+                <div class="input-group-addon">
+                  <span class="glyphicon glyphicon-calendar"></span>
+                </div>
+              </div>
+              <div class="col-md-12">
+                <p>City, State</p>
+
+                <p>BFO: info</p>
+
+                <p>Address: </p>
+
+                <p>Phone: </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="row passengers">
+        <div class="col-md-12">PASSENGERS</div>
+        <div class="col-md-6">Name</div>
+        <div class="col-md-2">DOB</div>
+        <div class="col-md-2">Weight</div>
+        <div class="col-md-2">Seats</div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">AIRCRAFT DETAILS</div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="row">
+              <div class="form-group col-md-12">
+                <label for="tail-number" class="col-md-3">Tail #</label>
+                <input type="text" class="form-control col-md-9" id="tail-number">
+              </div>
+              <div class="form-group col-md-12">
+                <label for="pilot-command" class="col-md-3">Pilot in Command</label>
+                <input type="email" class="form-control col-md-9" id="pilot-command">
+              </div>
+            </div>
+
+          </div>
+          <div class="col-md-6">
+            <div class="row">
+              <div class="form-group col-md-12">
+                <label for="tail-number" class="col-md-3">Tail #</label>
+                <input type="text" class="form-control col-md-9" id="tail-number">
+              </div>
+              <div class="form-group col-md-12">
+                <label for="pilot-command" class="col-md-3">Pilot in Command</label>
+                <input type="email" class="form-control col-md-9" id="pilot-command">
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+
+      </div>
+      <div class="row">
+        <div class="col-md-12">NOTES</div>
+        <div class="form-group">
+          <input type="text" class="form-control">
+          <a href="#" class="btn btn-default">Enter</a>
+          <div class="col-md-12 well-lg">
+
+          </div>
+      </div>
+    </div>
+
+
   </div>
 </div>
+</div>
+
