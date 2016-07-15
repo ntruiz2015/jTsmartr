@@ -1,5 +1,5 @@
 <!--header/top menu-->
-<nav class="navbar navbar-default navbar-static-top top-bar">
+<nav class="navbar navbar-default navbar-static-top custom-header">
   <!-- logo & toggle button-->
   <div class="navbar-header">
     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu-toggle"
@@ -51,43 +51,49 @@
 
           <div class="row">
             <div class="col-md-6">
-              <p>MIA</p>
+              <div class="form-group col-md-12">
+                <label for="departure-airport">Depart</label>
+                <select class="form-control" id="departure-airport" ng-model="vm.departAirportSelected"
+                        ng-options="airport.name for airport in vm.airports"
+                        ng-change="repopulate(vm.departAirportSelected)">
 
-              <div class="form-group">
+                </select>
+              </div>
+
+
                 <div class="input-group date ">
-                  <input type='text' class="form-control" />
+                  <input type='text' class="form-control"/>
                     <span class="input-group-addon" id="datepicker1">
                         <span class="glyphicon glyphicon-calendar"></span>
                     </span>
                 </div>
-              </div>
+
               <div class="col-md-12">
-                <p>City, State</p>
+                <p>City: {{vm.departAirportSelected.city}} </p>
 
-                <p>BFO: info</p>
-
-                <p>Address: </p>
-
-                <p>Phone: </p>
+                <p>State: {{vm.departAirportSelected.state}} </p>
               </div>
             </div>
             <div class="col-md-6">
-              <p>GA</p>
-
-              <div class="input-group date">
+              <div class="form-group">
+                <label for="arrival-airport">Arrival</label>
+                <!--<select class="form-control" id="arrival-airport" ng-model="vm.arrivalAirportSelected"-->
+                        <!--ng-options="airport.name for airport in vm.airports | filter : { name : '!' + vm.departAirportSelected.name}">-->
+                <!--</select>-->
+                <select class="form-control" id="arrival-airport" ng-model="vm.arrivalAirportSelected"
+                        ng-options="airport.name for airport in vm.airportsRepopulated">
+                </select>
+              </div>
+              <div class="input-group">
                 <input type='text' class="form-control"/>
                     <span class="input-group-addon" id="datepicker2">
                         <span class="glyphicon glyphicon-calendar"></span>
                     </span>
               </div>
               <div class="col-md-12">
-                <p>City, State</p>
+                <p>City: {{vm.arrivalAirportSelected.city}} </p>
 
-                <p>BFO: info</p>
-
-                <p>Address: </p>
-
-                <p>Phone: </p>
+                <p>State: {{vm.arrivalAirportSelected.state}} </p>
               </div>
             </div>
           </div>
@@ -120,12 +126,12 @@
           <div class="col-md-6">
             <div class="row">
               <div class="form-group col-md-12">
-                <label for="tail-number" class="col-md-3">Tail #</label>
-                <input type="text" class="form-control col-md-9" id="tail-number">
+                <label for="tail-number" class="col-md-3">Model</label>
+                <input type="text" class="form-control col-md-9" id="model">
               </div>
               <div class="form-group col-md-12">
-                <label for="pilot-command" class="col-md-3">Pilot in Command</label>
-                <input type="email" class="form-control col-md-9" id="pilot-command">
+                <label for="pilot-command" class="col-md-3">Second in Command</label>
+                <input type="email" class="form-control col-md-9" id="second-command">
               </div>
             </div>
 

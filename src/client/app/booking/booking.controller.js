@@ -1,3 +1,6 @@
+/**
+ * Created by naivys on 7/13/2016.
+ */
 (function () {
   'use strict';
 
@@ -5,13 +8,13 @@
     .module('app.confirm')
     .controller('ConfirmController', ConfirmController);
 
-  ConfirmController.$inject = ['logger', '$scope', '$filter'];
+  ConfirmController.$inject = ['logger', '$scope'];
   /* @ngInject */
 
-  function ConfirmController(logger, $scope, $filter) {
+  function ConfirmController(logger, $scope) {
     var vm = this;
     vm.title = 'ConfirmCtrl';
-    //var airports = [];
+    var airports = [];
     vm.airports = [
       {
         "iata": "UTK",
@@ -230,31 +233,8 @@
         "lat": "-4.168611",
         "size": "small"
       }
-
-    ];
-    vm.airportsRepopulated = vm.airports.slice(0);
-
-
-    activate();
-
-    function activate() {
-      logger.info('Activated Confirm View');
-    }
-
-    $scope.repopulate = function(selected){
-      vm.airportsRepopulated = [];
-      for(var i = 0; i <vm.airports.length; i++ ){
-        if(vm.airports[i].name !== selected.name ){
-          console.log(vm.airports[i]);
-          vm.airportsRepopulated.push(vm.airports[i]);
-        }
-      }
-    }
-
+    ]
   }
-
-
-
 
 
 
