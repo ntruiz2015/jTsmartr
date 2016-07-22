@@ -51,50 +51,53 @@
 
           <div class="row">
             <div class="col-md-6">
-              <div class="form-group col-md-12">
-                <label for="departure-airport">Depart</label>
+             <div class="form-group">
+                <label for="departure-airport">Flying from</label>
                 <select class="form-control" id="departure-airport" ng-model="vm.departAirportSelected"
                         ng-options="airport.name for airport in vm.airports"
                         ng-change="repopulate(vm.departAirportSelected)">
-
                 </select>
               </div>
-
-
-                <div class="input-group date ">
-                  <input type='text' class="form-control"/>
-                    <span class="input-group-addon" id="datepicker1">
-                        <span class="glyphicon glyphicon-calendar"></span>
-                    </span>
-                </div>
-
               <div class="col-md-12">
                 <p>City: {{vm.departAirportSelected.city}} </p>
 
                 <p>State: {{vm.departAirportSelected.state}} </p>
               </div>
+
+                <div class="input-group date">
+                  <label for="departure-date">Departing</label>
+                  <input type='text' class="form-control" id="departure-date"/>
+                    <span class="input-group-addon" id="datepicker1">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+
+
             </div>
             <div class="col-md-6">
               <div class="form-group">
-                <label for="arrival-airport">Arrival</label>
+                <label for="arrival-airport">Flying to</label>
                 <!--<select class="form-control" id="arrival-airport" ng-model="vm.arrivalAirportSelected"-->
                         <!--ng-options="airport.name for airport in vm.airports | filter : { name : '!' + vm.departAirportSelected.name}">-->
                 <!--</select>-->
                 <select class="form-control" id="arrival-airport" ng-model="vm.arrivalAirportSelected"
                         ng-options="airport.name for airport in vm.airportsRepopulated">
+
                 </select>
-              </div>
-              <div class="input-group">
-                <input type='text' class="form-control"/>
-                    <span class="input-group-addon" id="datepicker2">
-                        <span class="glyphicon glyphicon-calendar"></span>
-                    </span>
               </div>
               <div class="col-md-12">
                 <p>City: {{vm.arrivalAirportSelected.city}} </p>
 
                 <p>State: {{vm.arrivalAirportSelected.state}} </p>
+              </div><div class="form-group">
+              <div class="input-group">
+                <label for="arrival-date">Arriving</label>
+                <input type='text' class="form-control" id="arrival-date"/>
+                    <span class="input-group-addon" id="datepicker2">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
               </div>
+
             </div>
           </div>
         </div>

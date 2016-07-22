@@ -234,7 +234,6 @@
     ];
     vm.airportsRepopulated = vm.airports.slice(0);
 
-
     activate();
 
     function activate() {
@@ -245,11 +244,12 @@
       vm.airportsRepopulated = [];
       for(var i = 0; i <vm.airports.length; i++ ){
         if(vm.airports[i].name !== selected.name ){
-          console.log(vm.airports[i]);
           vm.airportsRepopulated.push(vm.airports[i]);
         }
       }
+      console.log(vm.airportsRepopulated);
     }
+
 
   }
 

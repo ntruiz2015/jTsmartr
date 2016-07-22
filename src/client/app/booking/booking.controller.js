@@ -5,17 +5,18 @@
   'use strict';
 
   angular
-    .module('app.confirm')
-    .controller('ConfirmController', ConfirmController);
+    .module('app.booking')
+    .controller('BookingController', BookingController);
 
-  ConfirmController.$inject = ['logger', '$scope'];
+  BookingController.$inject = ['logger', '$scope'];
   /* @ngInject */
 
-  function ConfirmController(logger, $scope) {
-    var vm = this;
-    vm.title = 'ConfirmCtrl';
-    var airports = [];
-    vm.airports = [
+  function BookingController(logger, $scope) {
+    var bookingCtrl = this;
+    bookingCtrl.title = 'bookingCtrl';
+    bookingCtrl.passengers = [];
+
+    bookingCtrl.airports = [
       {
         "iata": "UTK",
         "lon": "169.86667",
@@ -233,7 +234,41 @@
         "lat": "-4.168611",
         "size": "small"
       }
-    ]
+
+    ];
+    bookingCtrl.airportsRepopulated = bookingCtrl.airports.slice(0);
+    activate();
+
+    function activate() {
+      logger.info('Activated Booking View');
+    }
+
+    $scope.repopulate = function(selected){
+      bookingCtrl.airportsRepopulated = [];
+      for(var i = 0; i <bookingCtrl.airports.length; i++ ){
+        if(bookingCtrl.airports[i].name !== selected.name ){
+          bookingCtrl.airportsRepopulated.push(bookingCtrl.airports[i]);
+        }
+      }
+    }
+    $scope.SavePassenger = function(name,dob,weight,seats){
+      var passng = {
+        name: name,
+        weight: weight,
+        dob: dob,
+        seats: seats
+      };
+
+      if(bookingCtrl.psgrName &&bookingCtrl.psgrDOB && bookingCtrl.psgrWeight && bookingCtrl.psgrSeats ){
+        bookingCtrl.passengers.push(passng);
+        console.log(bookingCtrl.passengers);
+        bookingCtrl.psgrName = null;
+        bookingCtrl.psgrDOB = null;
+        bookingCtrl.psgrWeight = null;
+        bookingCtrl.psgrSeats = null;
+      }
+
+    }
   }
 
 

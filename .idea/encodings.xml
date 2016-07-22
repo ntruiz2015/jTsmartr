@@ -12,11 +12,7 @@
     <file url="file://$PROJECT_DIR$/src/client/app/confirm/confirm.module.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/client/app/confirm/confirm.route.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/client/app/confirm/confirm.route.spec.js" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/client/app/confirm/confirm.scripts.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/client/app/confirm/package.json" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/client/app/datepicker/datepicker.controller.js" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/client/app/datepicker/datepicker.html" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/client/app/datepicker/datepicker.module.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/client/styles/styles.less" charset="UTF-8" />
   </component>
 </project>
