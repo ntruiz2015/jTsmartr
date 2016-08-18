@@ -22,18 +22,18 @@
 
 //------ NavBar -----------
 .custom-header {
-  background: #FBFDFD !important;
+  background: #08708A !important;
   border-bottom: 1px solid #DDDDDD !important;
 }
 
 ul.nav.navbar-nav li a{
-  color: #545454;
+  color: #D0D3C5;
   font-family: "Lato", sans-serif;
   font-size: 15px;
   text-transform: uppercase;
 }
 ul.nav.navbar-nav li a:hover{
-  color: #F04242;
+  text-decoration: underline;
 }
 
 .confirmation > div {
@@ -68,14 +68,22 @@ ul.nav.navbar-nav li a:hover{
 .section-heading {
   padding: 5px 10px;
   //border-bottom: 1px solid #FF5C49 ;
-  border-bottom: 1px solid #CCCCCC;
-  background: #DDDDDD;
+  border-bottom: 1px solid #D73A31;
   color: #2e2e2e;
   margin-bottom: 10px;
 
 }
 .section-block{
   margin-bottom: 20px;
+}
+
+//-----Check Mark--------
+
+.checkmark {
+  width: 7px;
+  height: 3px;
+  border-bottom: 1px solid #eee;
+  border-left: 1px solid #eee;
 }
 
 //-----Datepicker--------
@@ -113,6 +121,8 @@ input, select {
   text-shadow: none !important;
 }
 
+
+
 form * {
   font-family: "Segoe UI", Arial, Helvetica, sans-serif;
 }
@@ -135,6 +145,11 @@ input[type="radio"], input[type="checkbox"] {
   border: 0 !important;
 }
 
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
 .btn {
   background-image: none !important;
   font-family: "Segoe UI", Arial, Helvetica, sans-serif;

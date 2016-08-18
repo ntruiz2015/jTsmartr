@@ -1,16 +1,10 @@
 <!--header/top menu-->
-<nav class="navbar navbar-default navbar-static-top custom-header">
-  <!-- logo & toggle button-->
+<nav class="navbar navbar-default navbar-static-top custom-header"> <!-- logo & toggle button-->
   <div class="navbar-header">
     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu-toggle"
-            aria-expanded="false">
-      <span class="sr-only">Toggle Navigation</span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-    </button>
-    <a class="navbar-brand" href="#">jetsmarter logo</a>
-  </div>
+            aria-expanded="false"><span class="sr-only">Toggle Navigation</span> <span class="icon-bar"></span> <span
+      class="icon-bar"></span> <span class="icon-bar"></span></button>
+    <a class="navbar-brand" href="#">jetsmarter logo</a></div>
   <div class="collapse navbar-collapse" id="menu-toggle">
     <ul class="nav navbar-nav">
       <li><a href="#">Home</a></li>
@@ -28,135 +22,7 @@
         <div class="col-md-12"><p>Passengers</p></div>
       </div>
     </div>
-    <div class="col-md-9 col-md-offset-1">
-      <div class="row booking-steps">
-        <div class="col-lg-4  col-md-4  col-sm-12 text-center">
-          <a href="#" class="btn btn-default booking-btn">1</a>
-
-          <p>Booking</p>
-        </div>
-        <div class="col-lg-4  col-md-4  col-sm-12 text-center">
-          <a href="#" class="btn btn-default booking-btn">1</a>
-
-          <p>Validation</p></div>
-        <div class="col-lg-4  col-md-4  col-sm-12 text-center">
-          <a href="#" class="btn btn-default booking-btn">1</a>
-
-          <p>Confirm</p>
-        </div>
-      </div>
-      <div class="row section-block">
-        <div class="col-md-12 section-heading">FLIGHT</div>
-        <div class="col-md-12">
-
-          <div class="row">
-            <div class="col-md-6">
-             <div class="form-group">
-                <label for="departure-airport">Flying from</label>
-                <select class="form-control" id="departure-airport" ng-model="vm.departAirportSelected"
-                        ng-options="airport.name for airport in vm.airports"
-                        ng-change="repopulate(vm.departAirportSelected)">
-                </select>
-              </div>
-              <div class="col-md-12">
-                <p>City: {{vm.departAirportSelected.city}} </p>
-
-                <p>State: {{vm.departAirportSelected.state}} </p>
-              </div>
-
-                <div class="input-group date">
-                  <label for="departure-date">Departing</label>
-                  <input type='text' class="form-control" id="departure-date"/>
-                    <span class="input-group-addon" id="datepicker1">
-                        <span class="glyphicon glyphicon-calendar"></span>
-                    </span>
-                </div>
-
-
-            </div>
-            <div class="col-md-6">
-              <div class="form-group">
-                <label for="arrival-airport">Flying to</label>
-                <!--<select class="form-control" id="arrival-airport" ng-model="vm.arrivalAirportSelected"-->
-                        <!--ng-options="airport.name for airport in vm.airports | filter : { name : '!' + vm.departAirportSelected.name}">-->
-                <!--</select>-->
-                <select class="form-control" id="arrival-airport" ng-model="vm.arrivalAirportSelected"
-                        ng-options="airport.name for airport in vm.airportsRepopulated">
-
-                </select>
-              </div>
-              <div class="col-md-12">
-                <p>City: {{vm.arrivalAirportSelected.city}} </p>
-
-                <p>State: {{vm.arrivalAirportSelected.state}} </p>
-              </div><div class="form-group">
-              <div class="input-group">
-                <label for="arrival-date">Arriving</label>
-                <input type='text' class="form-control" id="arrival-date"/>
-                    <span class="input-group-addon" id="datepicker2">
-                        <span class="glyphicon glyphicon-calendar"></span>
-                    </span>
-              </div>
-
-            </div>
-          </div>
-        </div>
-
-      </div>
-      <div class="row section-block">
-        <div class="col-md-12 section-heading">PASSENGERS</div>
-        <div class="col-md-6">Name</div>
-        <div class="col-md-2">DOB</div>
-        <div class="col-md-2">Weight</div>
-        <div class="col-md-2">Seats</div>
-      </div>
-      <div class="row section-block">
-        <div class="col-md-12 section-heading">AIRCRAFT DETAILS</div>
-        <div class="row">
-          <div class="col-md-6">
-            <div class="row">
-              <div class="form-group col-md-12">
-                <label for="tail-number" class="col-md-3">Tail #</label>
-                <input type="text" class="form-control col-md-9" id="tail-number">
-              </div>
-              <div class="form-group col-md-12">
-                <label for="pilot-command" class="col-md-3">Pilot in Command</label>
-                <input type="email" class="form-control col-md-9" id="pilot-command">
-              </div>
-            </div>
-
-          </div>
-          <div class="col-md-6">
-            <div class="row">
-              <div class="form-group col-md-12">
-                <label for="tail-number" class="col-md-3">Model</label>
-                <input type="text" class="form-control col-md-9" id="model">
-              </div>
-              <div class="form-group col-md-12">
-                <label for="pilot-command" class="col-md-3">Second in Command</label>
-                <input type="email" class="form-control col-md-9" id="second-command">
-              </div>
-            </div>
-
-          </div>
-        </div>
-
-
-      </div>
-      <div class="row">
-        <div class="col-md-12 section-heading">NOTES</div>
-        <div class="form-group">
-          <input type="text" class="form-control">
-          <a href="#" class="btn btn-default">Enter</a>
-
-          <div class="col-md-12 well-lg">
-
-          </div>
-        </div>
-      </div>
-
+    <div class="col-md-9 col-md-offset-2" ui-view="bookingView" >
 
     </div>
-  </div>
-</div>
-
+</div></div>

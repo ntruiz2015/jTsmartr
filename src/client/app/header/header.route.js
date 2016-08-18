@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('app.confirm')
+    .module('app.header')
     .run(appRun);
 
   appRun.$inject = ['routerHelper'];
@@ -17,10 +17,10 @@
         state: 'confirm',
         config: {
           url: '/',
-          templateUrl: 'app/confirm/header.html',
-          controller: 'ConfirmController',
-          controllerAs: 'vm',
-          title: 'Confirm',
+          templateUrl: 'app/header/header.html',
+          controller: 'HeaderController',
+          controllerAs: 'hder',
+          title: 'HeaderCtrl',
           settings: {
             nav: 2,
             content: '<i class="fa fa-lock"></i> Confirm'

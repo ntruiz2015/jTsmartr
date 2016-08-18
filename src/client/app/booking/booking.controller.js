@@ -8,6 +8,7 @@
     .module('app.booking')
     .controller('BookingController', BookingController);
 
+
   BookingController.$inject = ['logger', '$scope'];
   /* @ngInject */
 
@@ -266,7 +267,9 @@
         bookingCtrl.psgrDOB = null;
         bookingCtrl.psgrWeight = null;
         bookingCtrl.psgrSeats = null;
+        $scope.submitted = true;
       }
+
 
     }
   }
