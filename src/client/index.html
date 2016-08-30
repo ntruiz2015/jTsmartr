@@ -34,7 +34,12 @@
 
 <body>
 
-  <div ui-view></div>
+<nav class="navbar navbar-default navbar-static-top custom-header" ui-view="mainMenu">
+</nav>
+
+<div class="container pull-right" ui-view="booking">
+
+</div>
 
   <!-- build:js js/lib.js -->
   <!-- bower:js -->
@@ -60,16 +65,12 @@
   <script src="/src/client/app/blocks/logger/logger.module.js"></script>
   <script src="/src/client/app/blocks/router/router.module.js"></script>
   <script src="/src/client/app/booking/booking.module.js"></script>
-  <script src="/src/client/app/confirm/confirm.module.js"></script>
   <script src="/src/client/app/core/core.module.js"></script>
   <script src="/src/client/app/blocks/exception/exception-handler.provider.js"></script>
   <script src="/src/client/app/blocks/exception/exception.js"></script>
   <script src="/src/client/app/blocks/logger/logger.js"></script>
   <script src="/src/client/app/blocks/router/router-helper.provider.js"></script>
   <script src="/src/client/app/booking/booking.controller.js"></script>
-  <script src="/src/client/app/booking/booking.route.js"></script>
-  <script src="/src/client/app/confirm/confirm.controller.js"></script>
-  <script src="/src/client/app/confirm/confirm.route.js"></script>
   <script src="/src/client/app/core/config.js"></script>
   <script src="/src/client/app/core/constants.js"></script>
   <script src="/src/client/app/core/core.route.js"></script>

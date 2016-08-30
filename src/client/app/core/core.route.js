@@ -1,26 +1,37 @@
-(function() {
+(function () {
   'use strict';
 
   angular
     .module('app.core')
-    .run(appRun);
+    .run(appRun)
+
 
   /* @ngInject */
   function appRun(routerHelper) {
-    var otherwise = '/404';
+    var otherwise = '/';
     routerHelper.configureStates(getStates(), otherwise);
   }
 
   function getStates() {
     return [
       {
-        state: '404',
+        state: 'booking',
+        title: 'Booking',
         config: {
-          url: '/404',
-          templateUrl: 'app/core/404.html',
-          title: '404'
+          url: '/',
+          views: {
+            'mainMenu@':{
+              templateUrl: 'app/header.html'
+            },
+            'booking': {
+              templateUrl: 'app/booking/booking.html'
+            }
+          }
+
         }
       }
+
     ];
   }
 })();
+
