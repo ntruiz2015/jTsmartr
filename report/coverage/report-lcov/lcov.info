@@ -325,7 +325,7 @@ BRF:25
 BRH:3
 end_of_record
 TN:
-SF:./src/client/app/booking/booking.controller.js
+SF:./src/client/app/booking/confirm.controller.js
 FN:4,(anonymous_1)
 FN:15,BookingController
 FN:243,activate

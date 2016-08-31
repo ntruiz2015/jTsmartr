@@ -20,14 +20,29 @@
         config: {
           url: '/',
           views: {
-            'mainMenu@':{
+            'mainMenu':{
               templateUrl: 'app/header.html'
             },
-            'booking': {
+            'main@': {
               templateUrl: 'app/booking/booking.html'
             }
           }
 
+        }
+      },
+      {
+        state: 'confirm',
+        title: 'confirm',
+        config: {
+          url: '/confirm',
+          views: {
+            'mainMenu':{
+              templateUrl: 'app/header.html'
+            },
+            'main@': {
+              templateUrl: 'app/confirm/confirm.html'
+            }
+          }
         }
       }
 
