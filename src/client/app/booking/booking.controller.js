@@ -12,7 +12,7 @@
   BookingController.$inject = ['logger'];
   /* @ngInject */
 
-  function BookingController(logger,$scope) {
+  function BookingController(logger, $scope) {
     var bookingCtrl = this;
     bookingCtrl.passengers = [];
     bookingCtrl.eventSources = [];
@@ -237,6 +237,7 @@
       }
 
     ];
+    bookingCtrl.booking = [];
     bookingCtrl.airportsRepopulated = bookingCtrl.airports.slice(0);
     activate();
 
@@ -273,10 +274,10 @@
 
     }
 
-    bookingCtrl.minDate = function(){
-       var date = new Date();
+    bookingCtrl.minDate = function () {
+      var date = new Date();
       return
-        date.getDate() + 1;
+      date.getDate() + 1;
 
     }
 
