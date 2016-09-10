@@ -23,8 +23,10 @@
             'mainMenu':{
               templateUrl: 'app/header.html'
             },
-            'main@': {
-              templateUrl: 'app/booking/booking.html'
+            'main': {
+              templateUrl: 'app/booking/booking.html',
+              controller: 'BookingController as bookingCtrl'
+
             }
           }
 
@@ -39,8 +41,9 @@
             'mainMenu':{
               templateUrl: 'app/header.html'
             },
-            'main@': {
-              templateUrl: 'app/confirm/confirm.html'
+            'main': {
+              templateUrl: 'app/confirm/confirm.html',
+              controller: 'BookingController as bookingCtrl'
             }
           }
         }

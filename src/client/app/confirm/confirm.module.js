@@ -5,7 +5,8 @@
   'use strict';
 
   angular.module('app.confirm', [
-    'app.core'
+    'app.core',
+    'ui.bootstrap'
   ]);
 
 })();

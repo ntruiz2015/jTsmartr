@@ -9,10 +9,10 @@
     .controller('ConfirmController', ConfirmController);
 
 
-  BookingController.$inject = ['logger', '$scope'];
+  ConfirmController.$inject = ['logger', '$scope'];
   /* @ngInject */
 
-  function BookingController(logger, $scope) {
+  function ConfirmController(logger, $scope) {
     var confirmCtrl = this;
     confirmCtrl.title = 'confirmCtrl';
 

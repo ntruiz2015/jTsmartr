@@ -9,13 +9,13 @@
     .controller('BookingController', BookingController);
 
 
-  BookingController.$inject = ['logger', '$scope'];
+  BookingController.$inject = ['logger'];
   /* @ngInject */
 
-  function BookingController(logger, $scope) {
+  function BookingController(logger,$scope) {
     var bookingCtrl = this;
-    bookingCtrl.title = 'bookingCtrl';
     bookingCtrl.passengers = [];
+    bookingCtrl.eventSources = [];
 
     bookingCtrl.airports = [
       {
@@ -244,15 +244,15 @@
       logger.info('Activated Booking View');
     }
 
-    $scope.repopulate = function(selected){
+    bookingCtrl.repopulate = function (selected) {
       bookingCtrl.airportsRepopulated = [];
-      for(var i = 0; i <bookingCtrl.airports.length; i++ ){
-        if(bookingCtrl.airports[i].name !== selected.name ){
+      for (var i = 0; i < bookingCtrl.airports.length; i++) {
+        if (bookingCtrl.airports[i].name !== selected.name) {
           bookingCtrl.airportsRepopulated.push(bookingCtrl.airports[i]);
         }
       }
     }
-    $scope.SavePassenger = function(name,dob,weight,seats){
+    bookingCtrl.SavePassenger = function (name, dob, weight, seats) {
       var passng = {
         name: name,
         weight: weight,
@@ -260,20 +260,26 @@
         seats: seats
       };
 
-      if(bookingCtrl.psgrName &&bookingCtrl.psgrDOB && bookingCtrl.psgrWeight && bookingCtrl.psgrSeats ){
+      if (bookingCtrl.psgrName && bookingCtrl.psgrDOB && bookingCtrl.psgrWeight && bookingCtrl.psgrSeats) {
         bookingCtrl.passengers.push(passng);
         console.log(bookingCtrl.passengers);
         bookingCtrl.psgrName = null;
         bookingCtrl.psgrDOB = null;
         bookingCtrl.psgrWeight = null;
         bookingCtrl.psgrSeats = null;
-        $scope.submitted = true;
+        bookingCtrl.submitted = true;
       }
 
 
     }
+
+    bookingCtrl.minDate = function(){
+       var date = new Date();
+      return
+        date.getDate() + 1;
+
+    }
+
   }
-
-
 
 })();

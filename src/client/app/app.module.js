@@ -3,10 +3,10 @@
 
   angular.module('app', [
     'app.core',
-    'app.booking'
+    'app.booking',
+    'app.confirm'
+
   ])
-
-
 
 
 })();
