@@ -15,8 +15,6 @@
   function BookingController(logger, $scope) {
     var bookingCtrl = this;
     bookingCtrl.passengers = [];
-    bookingCtrl.eventSources = [];
-
     bookingCtrl.airports = [
       {
         "iata": "UTK",
