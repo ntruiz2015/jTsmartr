@@ -10,7 +10,7 @@
 <div class="row section-block">
   <div class="col-md-12 section-heading">FLIGHT</div>
   <div class="col-md-6">
-    <div class="form-group"><label for="departure-airport">Flying from</label>
+    <div class="form-group"><label for="departure-airport">From</label>
       <select class="form-control" id="departure-airport"
               ng-model="bookingCtrl.departAirportSelected"
               ng-options="airport.name for airport in bookingCtrl.airports"
@@ -25,7 +25,7 @@
     </div>
   </div>
   <div class="col-md-6">
-    <div class="form-group"><label for="arrival-airport">Flying to</label>
+    <div class="form-group"><label for="arrival-airport">To</label>
       <!--<select class="form-control" id="arrival-airport" ng-model="bookingCtrl.arrivalAirportSelected"-->
       <!--ng-options="airport.name for airport in bookingCtrl.airports | filter : { name : '!' + bookingCtrl.departAirportSelected.name}">-->
       <!--</select>--> <select class="form-control" id="arrival-airport"

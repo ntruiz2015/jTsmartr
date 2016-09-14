@@ -237,7 +237,7 @@
       }
 
     ];
-    bookingCtrl.booking = [];
+    bookingCtrl.bookingData = [];
     bookingCtrl.airportsRepopulated = bookingCtrl.airports.slice(0);
     activate();
 

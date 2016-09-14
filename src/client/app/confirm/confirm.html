@@ -1,1 +1,9 @@
 <h2>Confirm view</h2>
+<p class="form-group">
+  <label>Define your format</label>
+  <input type="text" ng-model="format" class="form-control">
+</p>
+<p class="form-group">
+  <label>Result</label>
+  <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="date" />
+</p>
