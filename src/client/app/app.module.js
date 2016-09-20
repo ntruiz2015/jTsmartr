@@ -5,8 +5,5 @@
     'app.core',
     'app.booking',
     'app.confirm'
-
   ])
-
-
 })();
