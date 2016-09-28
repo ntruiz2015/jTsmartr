@@ -17,7 +17,9 @@
     bookingCtrl.passengers = [];
     bookingCtrl.airports = [];
     bookingCtrl.airportsRepopulated = [];
-    bookingCtrl.passengersAllowed;
+    bookingCtrl.allowed = 0;
+
+    bookingCtrl.passengersAllowed = passengersAllowed;
 
     activate();
 
@@ -26,8 +28,12 @@
     }
 
     function passengersAllowed(){
-      bookingCtrl.passengersAllowed = bookingCtrl.adultsNumber + bookingCtrl.childrenNumber;
-      return passengers;
+      if(bookingCtrl.adultsNumber && bookingCtrl.childrenNumber){
+        bookingCtrl.allowed = parseInt(bookingCtrl.adultsNumber) + parseInt(bookingCtrl.childrenNumber);
+        //return bookingCtrl.allowed;
+        console.log(bookingCtrl.allowed);
+      }
+
     }
 
     airportsSrv.getAirports()
@@ -52,8 +58,7 @@
         dob: dob,
         seats: seats
       };
-      if (bookingCtrl.psgrName && bookingCtrl.psgrDOB && bookingCtrl.psgrWeight && bookingCtrl.psgrSeats
-          && bookingCtrl.passengers.length < passengersAllowed){
+      if (bookingCtrl.psgrName && bookingCtrl.psgrDOB && bookingCtrl.psgrWeight && bookingCtrl.psgrSeats){
           bookingCtrl.passengers.push(passng);
           console.log(bookingCtrl.passengers);
           bookingCtrl.psgrName = null;
