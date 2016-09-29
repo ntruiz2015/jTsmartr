@@ -18,6 +18,7 @@
     bookingCtrl.airports = [];
     bookingCtrl.airportsRepopulated = [];
     bookingCtrl.allowed = 0;
+    bookingCtrl.flight = {};
 
     bookingCtrl.passengersAllowed = passengersAllowed;
 
@@ -50,6 +51,7 @@
         }
       }
     }
+
     bookingCtrl.SavePassenger = function (name, dob, weight, seats) {
       var passng = {
         name: name,
@@ -66,6 +68,9 @@
           bookingCtrl.submitted = true;
       }
     }
+
+
+
 
 
   }

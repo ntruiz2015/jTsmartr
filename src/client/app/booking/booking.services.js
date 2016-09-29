@@ -34,15 +34,23 @@
       }
 
       airportServObj.getAirports = function () {
-        return $http.get(URLS.FETCH).then(airportServObj.cacheAirports);
+        return (airports) ? $q.when(airports) : $http.get(URLS.FETCH).then(airportServObj.cacheAirports);
       }
-
-
       return airportServObj;
 
-
     })
-    .factory('bookingSrv', function () {
+    .factory('flightSrv', function () {
+
+      function flightSrv(airpFrom, airpTo, departDate, arrivDate, passgrsTotal) {
+        this.airpFrom = airpFrom;
+        this.airpTo = airpTo;
+        this.departDate = departDate;
+        this.arrivDate = arrivDate;
+        this.passgrsTotal = passgrsTotal;
+      }
+
+      return flightSrv;
+
 
     });
 })();
