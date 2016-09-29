@@ -21,14 +21,28 @@
       var airportServObj = {};
       var URLS = {
         FETCH: 'data/airports.json'
+      };
+      var airports;
+
+      airportServObj.getData = function (remoteData) {
+        return remoteData.data;
       }
+
+      airportServObj.cacheAirports = function (remoteData) {
+        airports = airportServObj.getData(remoteData);
+        return airports;
+      }
+
       airportServObj.getAirports = function () {
-        return $http.get(URLS.FETCH);
+        return $http.get(URLS.FETCH).then(airportServObj.cacheAirports);
       }
+
 
       return airportServObj;
 
 
     })
-    .factory()
+    .factory('bookingSrv', function () {
+
+    });
 })();

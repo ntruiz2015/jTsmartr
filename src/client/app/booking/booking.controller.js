@@ -37,10 +37,9 @@
     }
 
     airportsSrv.getAirports()
-      .then(function (result) {
-        bookingCtrl.airports = result.data;
-        bookingCtrl.airportsRepopulated = bookingCtrl.airports.slice(0);
-        console.log(bookingCtrl.airportsRepopulated);
+      .then(function (remoteData) {
+        bookingCtrl.airports = remoteData;
+        bookingCtrl.airportsRepopulated = remoteData;
       })
 
     bookingCtrl.repopulate = function (selected) {
@@ -60,7 +59,6 @@
       };
       if (bookingCtrl.psgrName && bookingCtrl.psgrDOB && bookingCtrl.psgrWeight && bookingCtrl.psgrSeats){
           bookingCtrl.passengers.push(passng);
-          console.log(bookingCtrl.passengers);
           bookingCtrl.psgrName = null;
           bookingCtrl.psgrDOB = null;
           bookingCtrl.psgrWeight = null;
