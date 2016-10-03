@@ -43,11 +43,11 @@
                      ng-model="bookingCtrl.departDate"
                      id="departure-date"
                      name="departure-date"
-                     is-open="bookingCtrl.opened"
+                     is-open="bookingCtrl.openDepart"
                      datepicker-options="bookingCtrl.dateOptions" ng-required="true"
                      class="form-control col-lg-9 col-md-9 col-sm-12 col-xs-12"/>
                 <span class="input-group-btn">
-                <button type="button" class="btn btn-default" ng-click="bookingCtrl.open($event)"><i
+                <button type="button" class="btn btn-default" ng-click="bookingCtrl.openDep($event)"><i
                   class="glyphicon glyphicon-calendar"></i></button>
                 </span>
             </div>
@@ -55,15 +55,16 @@
           <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
             <label for="arrival-date" class="col-lg-3 col-md-3 col-sm-12 col-xs-12">Arrival</label>
 
-            <div class="input-group col-lg-9 col-md-9 col-sm-12 col-xs-12"><input type="text" class="form-control" uib-datepicker-popup="MM/dd/yyyy"
+            <div class="input-group col-lg-9 col-md-9 col-sm-12 col-xs-12">
+              <input type="text" class="form-control" uib-datepicker-popup="MM/dd/yyyy"
                                             ng-model="bookingCtrl.arrivDate"
                                             id="arrival-date"
                                             name="arrival-date"
-                                            is-open="bookingCtrl.opened"
+                                            is-open="bookingCtrl.openArrival"
                                             datepicker-options="bookingCtrl.dateOptions" ng-required="true"
                                             class="form-control"/>
             <span class="input-group-btn">
-                <button type="button" class="btn btn-default" ng-click="bookingCtrl.open($event)"><i
+                <button type="button" class="btn btn-default" ng-click="bookingCtrl.openArriv($event)"><i
                   class="glyphicon glyphicon-calendar"></i></button>
               </span>
             </div>

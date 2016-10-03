@@ -20,8 +20,11 @@
     bookingCtrl.allowed = 0;
     bookingCtrl.passengersAllowed = passengersAllowed;
     bookingCtrl.saveFlight = saveFlight;
-    bookingCtrl.opened = false;
-    bookingCtrl.open = open;
+    bookingCtrl.openArrival = false;
+    bookingCtrl.openDepart = false;
+    bookingCtrl.openArriv = openArriv;
+    bookingCtrl.openDep = openDep;
+
 
     bookingCtrl.dateOptions = {
       formatYear: 'yy',
@@ -36,8 +39,11 @@
       logger.info('Activated Booking View');
     }
 
-    function open($event) {
-      bookingCtrl.opened = true;
+    function openArriv($event) {
+      bookingCtrl.openArrival = true;
+    }flightSrv
+    function openDep($event) {
+      bookingCtrl.openDepart = true;
     }
     function passengersAllowed() {
       if (bookingCtrl.adultsNumber && bookingCtrl.childrenNumber) {
