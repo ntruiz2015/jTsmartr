@@ -7,50 +7,59 @@
   angular
     .module('app.booking')
     .factory('airportsSrv', function ($http) {
-      //var airports = this;
-      //var URLS = {
-      //  FETCH: 'data/airports.json'
-      //};
-      //
-      //airports.getAirports = function () {
-      //  return $http.get(URLS.FETCH);
-      //};
-      //
-      //return airports;
-
-      var airportServObj = {};
+      var airportsSrv = {};
       var URLS = {
         FETCH: 'data/airports.json'
       };
       var airports;
 
-      airportServObj.getData = function (remoteData) {
+      airportsSrv.getData = function (remoteData) {
         return remoteData.data;
       }
 
-      airportServObj.cacheAirports = function (remoteData) {
-        airports = airportServObj.getData(remoteData);
+      airportsSrv.cacheAirports = function (remoteData) {
+        airports = airportsSrv.getData(remoteData);
         return airports;
       }
 
-      airportServObj.getAirports = function () {
-        return (airports) ? $q.when(airports) : $http.get(URLS.FETCH).then(airportServObj.cacheAirports);
+      airportsSrv.getAirports = function () {
+        return (airports) ? $q.when(airports) : $http.get(URLS.FETCH).then(airportsSrv.cacheAirports);
       }
-      return airportServObj;
+      return airportsSrv;
 
     })
     .factory('flightSrv', function () {
+      var flightSrv = {};
 
-      function flightSrv(airpFrom, airpTo, departDate, arrivDate, passgrsTotal) {
+      flightSrv.flightObj = function (airpFrom, airpTo, departDate, arrivDate, passgrsTotal) {
         this.airpFrom = airpFrom;
         this.airpTo = airpTo;
-        this.departDate = departDate;
-        this.arrivDate = arrivDate;
+        this.departDate = new Date(departDate);
+        this.arrivDate = new Date(arrivDate);
         this.passgrsTotal = passgrsTotal;
-      }
-
+      };
       return flightSrv;
+    })
+    .factory('passengerSrv', function () {
+      var passengerSrv = {};
+      passengerSrv.passengerObj = function (name, dob, weight, seats) {
+        this.name = name;
+        this.dob = new Date(dob);
+        //this.dob = dob;
+        this.weight = weight;
+        this.seats = seats;
+      };
+      return passengerSrv;
+    })
+    .factory('bookingSrv', function () {
+      var bookingSrv = {};
+      bookingSrv.bookingObj = function (passengers, flight) {
+        this.passengers = passengers;
+        this.flight = flight;
+      };
+
+      return bookingSrv;
+    })
 
 
-    });
 })();

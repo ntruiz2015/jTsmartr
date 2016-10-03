@@ -9,18 +9,26 @@
     .controller('BookingController', BookingController);
 
 
-  BookingController.$inject = ['logger', 'airportsSrv'];
+  BookingController.$inject = ['logger', 'airportsSrv', 'passengerSrv', 'flightSrv', 'bookingSrv', 'moment', '$q', '$http'];
   /* @ngInject */
 
-  function BookingController(logger, airportsSrv) {
+  function BookingController(logger, airportsSrv, passengerSrv, flightSrv, bookingSrv, moment, $q, $http) {
     var bookingCtrl = this;
     bookingCtrl.passengers = [];
     bookingCtrl.airports = [];
     bookingCtrl.airportsRepopulated = [];
     bookingCtrl.allowed = 0;
-    bookingCtrl.flight = {};
-
     bookingCtrl.passengersAllowed = passengersAllowed;
+    bookingCtrl.saveFlight = saveFlight;
+    bookingCtrl.opened = false;
+    bookingCtrl.open = open;
+
+    bookingCtrl.dateOptions = {
+      formatYear: 'yy',
+      maxDate: new Date(2020, 5, 22),
+      minDate: new Date(),
+      startingDay: 1
+    };
 
     activate();
 
@@ -28,11 +36,12 @@
       logger.info('Activated Booking View');
     }
 
-    function passengersAllowed(){
-      if(bookingCtrl.adultsNumber && bookingCtrl.childrenNumber){
+    function open($event) {
+      bookingCtrl.opened = true;
+    }
+    function passengersAllowed() {
+      if (bookingCtrl.adultsNumber && bookingCtrl.childrenNumber) {
         bookingCtrl.allowed = parseInt(bookingCtrl.adultsNumber) + parseInt(bookingCtrl.childrenNumber);
-        //return bookingCtrl.allowed;
-        console.log(bookingCtrl.allowed);
       }
 
     }
@@ -41,7 +50,7 @@
       .then(function (remoteData) {
         bookingCtrl.airports = remoteData;
         bookingCtrl.airportsRepopulated = remoteData;
-      })
+      });
 
     bookingCtrl.repopulate = function (selected) {
       bookingCtrl.airportsRepopulated = [];
@@ -50,25 +59,26 @@
           bookingCtrl.airportsRepopulated.push(bookingCtrl.airports[i]);
         }
       }
-    }
+    };
 
-    bookingCtrl.SavePassenger = function (name, dob, weight, seats) {
-      var passng = {
-        name: name,
-        weight: weight,
-        dob: dob,
-        seats: seats
-      };
-      if (bookingCtrl.psgrName && bookingCtrl.psgrDOB && bookingCtrl.psgrWeight && bookingCtrl.psgrSeats){
-          bookingCtrl.passengers.push(passng);
-          bookingCtrl.psgrName = null;
-          bookingCtrl.psgrDOB = null;
-          bookingCtrl.psgrWeight = null;
-          bookingCtrl.psgrSeats = null;
-          bookingCtrl.submitted = true;
+    bookingCtrl.SavePassenger = function () {
+      var passng = new passengerSrv.passengerObj(bookingCtrl.psgrName, bookingCtrl.psgrDOB, bookingCtrl.psgrWeight, bookingCtrl.psgrSeats);
+      if (name && dob && weight && seats) {
+        bookingCtrl.passengers.push(passng);
+        bookingCtrl.psgrName = null;
+        bookingCtrl.psgrDOB = null;
+        bookingCtrl.psgrWeight = null;
+        bookingCtrl.psgrSeats = null;
+        bookingCtrl.submitted = true;
       }
-    }
+      console.log(bookingCtrl.psgrDOB);
+      bookingCtrl.pasengersForm.$setPristine();
+    };
 
+    function saveFlight() {
+      bookingCtrl.flight = new flightSrv.flightObj(bookingCtrl.departAirportSelected, bookingCtrl.arrivalAirportSelected,
+        bookingCtrl.departDate, bookingCtrl.arrivDate, bookingCtrl.allowed);
+    }
 
 
 
