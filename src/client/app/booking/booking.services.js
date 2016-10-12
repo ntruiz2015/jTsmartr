@@ -42,13 +42,21 @@
     })
     .factory('passengerSrv', function () {
       var passengerSrv = {};
-      passengerSrv.passengerObj = function (name, dob, weight, seats) {
+      passengerSrv.passengersList = [];
+      passengerSrv.passengerObj = function (id, name, dob, weight, seats){
+        this.id = id;
         this.name = name;
         this.dob = new Date(dob);
-        //this.dob = dob;
         this.weight = weight;
         this.seats = seats;
       };
+
+      passengerSrv.addPassenger = function(passenger){
+        passengerSrv.passengersList.push(passenger);
+      };
+
+
+
       return passengerSrv;
     })
     .factory('bookingSrv', function () {

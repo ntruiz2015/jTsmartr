@@ -9,12 +9,14 @@
     .controller('ConfirmController', ConfirmController);
 
 
-  ConfirmController.$inject = ['logger', '$scope'];
+  ConfirmController.$inject = ['logger', 'passengerSrv'];
   /* @ngInject */
 
-  function ConfirmController(logger, $scope) {
+  function ConfirmController(logger, passengerSrv) {
     var confirmCtrl = this;
     confirmCtrl.title = 'confirmCtrl';
+
+    confirmCtrl.passengers = passengerSrv.passengersList;
 
     activate();
 

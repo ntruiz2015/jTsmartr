@@ -9,12 +9,12 @@
     .controller('BookingController', BookingController);
 
 
-  BookingController.$inject = ['logger', 'airportsSrv', 'passengerSrv', 'flightSrv', 'bookingSrv', 'moment', '$q', '$http'];
+  BookingController.$inject = ['logger', 'airportsSrv', 'passengerSrv', 'flightSrv', 'bookingSrv', '$http'];
   /* @ngInject */
 
-  function BookingController(logger, airportsSrv, passengerSrv, flightSrv, bookingSrv, moment, $q, $http) {
+  function BookingController(logger, airportsSrv, passengerSrv, flightSrv, bookingSrv, $http) {
     var bookingCtrl = this;
-    bookingCtrl.passengers = [];
+    bookingCtrl.passengers = passengerSrv.passengersList;
     bookingCtrl.airports = [];
     bookingCtrl.airportsRepopulated = [];
     bookingCtrl.allowed = 0;
@@ -24,8 +24,18 @@
     bookingCtrl.openDepart = false;
     bookingCtrl.openArriv = openArriv;
     bookingCtrl.openDep = openDep;
+    bookingCtrl.openDob = openDob;
+    bookingCtrl.showButtonBar = false;
+    bookingCtrl.openDateOfB = false;
+    bookingCtrl.getId = getId;
+    bookingCtrl.updatePassenger = updatePassenger;
+    bookingCtrl.PssgCopy;
 
-
+    function getId(min, max) {
+      min = Math.ceil(min);
+      max = Math.floor(max);
+      return Math.floor(Math.random() * (max - min)) + min;
+    }
     bookingCtrl.dateOptions = {
       formatYear: 'yy',
       maxDate: new Date(2020, 5, 22),
@@ -41,10 +51,17 @@
 
     function openArriv($event) {
       bookingCtrl.openArrival = true;
-    }flightSrv
+    }
+
+
     function openDep($event) {
       bookingCtrl.openDepart = true;
     }
+
+    function openDob($event) {
+      bookingCtrl.openDateOfB = true;
+    }
+
     function passengersAllowed() {
       if (bookingCtrl.adultsNumber && bookingCtrl.childrenNumber) {
         bookingCtrl.allowed = parseInt(bookingCtrl.adultsNumber) + parseInt(bookingCtrl.childrenNumber);
@@ -68,16 +85,17 @@
     };
 
     bookingCtrl.SavePassenger = function () {
-      var passng = new passengerSrv.passengerObj(bookingCtrl.psgrName, bookingCtrl.psgrDOB, bookingCtrl.psgrWeight, bookingCtrl.psgrSeats);
-      if (name && dob && weight && seats) {
-        bookingCtrl.passengers.push(passng);
+      var id = bookingCtrl.getId(1, 200);
+      if (bookingCtrl.psgrName && bookingCtrl.psgrDOB && bookingCtrl.psgrWeight && bookingCtrl.psgrSeats) {
+        var passng = new passengerSrv.passengerObj(id, bookingCtrl.psgrName, bookingCtrl.psgrDOB, bookingCtrl.psgrWeight,
+          bookingCtrl.psgrSeats);
+        passengerSrv.addPassenger(passng);
         bookingCtrl.psgrName = null;
         bookingCtrl.psgrDOB = null;
         bookingCtrl.psgrWeight = null;
         bookingCtrl.psgrSeats = null;
         bookingCtrl.submitted = true;
       }
-      console.log(bookingCtrl.psgrDOB);
       bookingCtrl.pasengersForm.$setPristine();
     };
 
@@ -86,7 +104,10 @@
         bookingCtrl.departDate, bookingCtrl.arrivDate, bookingCtrl.allowed);
     }
 
+    function updatePassenger(passenger) {
 
+
+    }
 
 
   }

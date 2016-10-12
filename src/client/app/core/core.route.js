@@ -43,7 +43,7 @@
             },
             'main': {
               templateUrl: 'app/confirm/confirm.html',
-              controller: 'BookingController as bookingCtrl'
+              controller: 'ConfirmController as confirmCtrl'
             }
           }
         }

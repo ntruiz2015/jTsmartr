@@ -36,37 +36,41 @@
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <div class="row">
           <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-            <label for="departure-date" class="col-lg-3 col-md-3 col-sm-12 col-xs-12">Departing</label>
+            <div class="form-group">
+              <label for="departure-date" class="col-lg-3 col-md-3 col-sm-12 col-xs-12">Departing</label>
 
-            <div class="input-group  col-lg-9 col-md-9 col-sm-12 col-xs-12">
-              <input type="text" class="form-control" uib-datepicker-popup="MM/dd/yyyy"
-                     ng-model="bookingCtrl.departDate"
-                     id="departure-date"
-                     name="departure-date"
-                     is-open="bookingCtrl.openDepart"
-                     datepicker-options="bookingCtrl.dateOptions" ng-required="true"
-                     class="form-control col-lg-9 col-md-9 col-sm-12 col-xs-12"/>
+              <div class="input-group">
+                <input type="text" class="form-control" uib-datepicker-popup="MM/dd/yyyy"
+                       ng-model="bookingCtrl.departDate"
+                       id="departure-date"
+                       name="departure-date"
+                       is-open="bookingCtrl.openDepart"
+                       datepicker-options="bookingCtrl.dateOptions" ng-required="true"
+                       class="form-control col-lg-9 col-md-9 col-sm-12 col-xs-12"/>
                 <span class="input-group-btn">
                 <button type="button" class="btn btn-default" ng-click="bookingCtrl.openDep($event)"><i
                   class="glyphicon glyphicon-calendar"></i></button>
                 </span>
+              </div>
             </div>
           </div>
           <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-            <label for="arrival-date" class="col-lg-3 col-md-3 col-sm-12 col-xs-12">Arrival</label>
+            <div class="form-group"><label for="arrival-date"
+                                           class="col-lg-3 col-md-3 col-sm-12 col-xs-12">Arrival</label>
 
-            <div class="input-group col-lg-9 col-md-9 col-sm-12 col-xs-12">
-              <input type="text" class="form-control" uib-datepicker-popup="MM/dd/yyyy"
-                                            ng-model="bookingCtrl.arrivDate"
-                                            id="arrival-date"
-                                            name="arrival-date"
-                                            is-open="bookingCtrl.openArrival"
-                                            datepicker-options="bookingCtrl.dateOptions" ng-required="true"
-                                            class="form-control"/>
+              <div class="input-group" class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+                <input type="text" class="form-control" uib-datepicker-popup="MM/dd/yyyy"
+                       ng-model="bookingCtrl.arrivDate"
+                       id="arrival-date"
+                       name="arrival-date"
+                       is-open="bookingCtrl.openArrival"
+                       datepicker-options="bookingCtrl.dateOptions" ng-required="true"
+                       class="form-control"/>
             <span class="input-group-btn">
                 <button type="button" class="btn btn-default" ng-click="bookingCtrl.openArriv($event)"><i
                   class="glyphicon glyphicon-calendar"></i></button>
               </span>
+              </div>
             </div>
           </div>
 
@@ -101,38 +105,40 @@
           </div>
         </div>
       </div>
-      </div>
-      <div class="row section-block"
-           ng-if="(bookingCtrl.passengers.length < bookingCtrl.allowed) && bookingCtrl.allowed">
-        <div class="col-md-12 col-md-12 col-sm-12 col-xs-12 section-heading">add passengers</div>
-        <div class="col-md-12 col-md-12 col-sm-12 col-xs-12">
-          <form novalidate name="bookingCtrl.pasengersForm"
-                class="form-horizontal col-lg-12 col-md-12 col-sm-12 col-xs-12"
-                ng-submit="bookingCtrl.SavePassenger();">
+    </div>
+    <div class="row section-block"
+         ng-if="(bookingCtrl.passengers.length < bookingCtrl.allowed) && bookingCtrl.allowed">
+      <div class="col-md-12 col-md-12 col-sm-12 col-xs-12 section-heading">add passengers</div>
+      <div class="col-md-12 col-md-12 col-sm-12 col-xs-12">
+        <form novalidate name="bookingCtrl.pasengersForm"
+              class="form-horizontal col-lg-12 col-md-12 col-sm-12 col-xs-12"
+              ng-submit="bookingCtrl.SavePassenger();">
 
-            <div class="row">
-              <div class="form-group col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                <div class="row"><label for="psgrName" class="col-lg-3 col-md-3 col-sm-12 col-xs-12">Name</label>
-                  <input type="text" id="psgrName" name="psgrName"
-                         class="form-control col-lg-9 col-md-9 col-sm-12 col-xs-12"
-                         ng-model="bookingCtrl.psgrName"
-                         required ng-minlength="5"/>
+          <div class="row">
+            <div class="form-group col-lg-6 col-md-6 col-sm-12 col-xs-12">
+              <div class="row"><label for="psgrName" class="col-lg-3 col-md-3 col-sm-12 col-xs-12">Name</label>
+                <input type="text" id="psgrName" name="psgrName"
+                       class="form-control col-lg-9 col-md-9 col-sm-12 col-xs-12"
+                       ng-model="bookingCtrl.psgrName"
+                       required ng-minlength="5"/>
 
-                  <p ng-show="pasengersForm.psgrName.$error.minlength" class="help-block">Name is too short.</p></div>
+                <p ng-show="pasengersForm.psgrName.$error.minlength" class="help-block">Name is too short.</p></div>
 
-              </div>
-              <div class="input-group col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                <label for="psgrDOB" class="col-lg-3 col-md-3 col-sm-12 col-xs-12">DOB</label>
-                {{bookingCtrl.psgrDOB}}
-                <input type="text" class="form-control" uib-datepicker-popup="MM/dd/yyyy" ng-model="bookingCtrl.psgrDOB"
-                       is-open="bookingCtrl.opened"
-                       datepicker-options="bookingCtrl.dateOptions" ng-required="true"
-                       close-text="Close" id="psgrDOB" name="psgrDOB"
-                       class="form-control col-lg-9 col-md-9 col-sm-12 col-xs-12"/>
+            </div>
+            <div class="form-group col-lg-6 col-md-6 col-sm-12 col-xs-12">
+              <div class="input-group">
+                <label for="psgrDOB">DOB</label>
+
+                <div class="input-group"><input type="text" class="form-control" uib-datepicker-popup="MM/dd/yyyy"
+                                                ng-model="bookingCtrl.psgrDOB"
+                                                is-open="bookingCtrl.openDateOfB"
+                                                datepicker-options="bookingCtrl.dateOptions" ng-required="true"
+                                                close-text="Close" id="psgrDOB" name="psgrDOB"
+                                                class="form-control"/>
               <span class="input-group-btn">
-                <button type="button" class="btn btn-default" ng-click="bookingCtrl.open($event)"><i
+                <button type="button" class="btn btn-default" ng-click="bookingCtrl.openDob($event)"><i
                   class="glyphicon glyphicon-calendar"></i></button>
-              </span>
+              </span></div>
 
                 <!--<input type="date" id="psgrDOB" name="psgrDOB" class="form-control col-lg-9 col-md-9 col-sm-12 col-xs-12"-->
                 <!--ng-model="bookingCtrl.psgrDOB"-->
@@ -141,64 +147,66 @@
 
               </div>
             </div>
-            <div class="row">
-              <div class="form-group col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                <div class="row"><label for="psgrWeight" class="col-lg-3 col-md-3 col-sm-12 col-xs-12">Weight</label>
-                  <input type="number" id="psgrWeight" name="psgrWeight"
-                         class="form-control col-lg-9 col-md-9 col-sm-12 col-xs-12"
-                         ng-model="bookingCtrl.psgrWeight" required min="20" max="400"/>
-
-                  <span class="error" ng-show="pasengersForm.psgrWeight.$error.min">Minimum of 20 pounds required</span>
-                  <span class="error" ng-show="pasengersForm.psgrWeight.$error.max">Maximum of 400 pounds allowed</span>
-                </div>
-              </div>
-              <div class="form-group col-lg-6 col-md-6 col-sm-12 col-xs-12"
-                   ng-class="{'has-error' : bookingCtrl.pasengersForm.psgrWeight.$invalid && !bookingCtrl.pasengersForm.psgrWeight.$pristine
-                   && submitted}">
-                <label for="psgrSeats" class="col-lg-3 col-md-3 col-sm-12 col-xs-12">Seats</label>
-                <input type="text" id="psgrSeats" name="psgrSeats"
+          </div>
+          <div class="row">
+            <div class="form-group col-lg-6 col-md-6 col-sm-12 col-xs-12">
+              <div class="row"><label for="psgrWeight" class="col-lg-3 col-md-3 col-sm-12 col-xs-12">Weight</label>
+                <input type="number" id="psgrWeight" name="psgrWeight"
                        class="form-control col-lg-9 col-md-9 col-sm-12 col-xs-12"
-                       ng-model="bookingCtrl.psgrSeats"
-                       required/>
+                       ng-model="bookingCtrl.psgrWeight" required min="20" max="400"/>
 
-                <div
-                  ng-show="bookingCtrl.pasengersForm.psgrSeats.$invalid && !bookingCtrl.pasengersForm.psgrSeats.$pristine">
+                <span class="error" ng-show="pasengersForm.psgrWeight.$error.min">Minimum of 20 pounds required</span>
+                <span class="error" ng-show="pasengersForm.psgrWeight.$error.max">Maximum of 400 pounds allowed</span>
+              </div>
+            </div>
+            <div class="form-group col-lg-6 col-md-6 col-sm-12 col-xs-12"
+                 ng-class="{'has-error' : bookingCtrl.pasengersForm.psgrWeight.$invalid && !bookingCtrl.pasengersForm.psgrWeight.$pristine
+                   && submitted}">
+              <label for="psgrSeats" class="col-lg-3 col-md-3 col-sm-12 col-xs-12">Seats</label>
+              <input type="text" id="psgrSeats" name="psgrSeats"
+                     class="form-control col-lg-9 col-md-9 col-sm-12 col-xs-12"
+                     ng-model="bookingCtrl.psgrSeats"
+                     required/>
+
+              <div
+                ng-show="bookingCtrl.pasengersForm.psgrSeats.$invalid && !bookingCtrl.pasengersForm.psgrSeats.$pristine">
                   <span>
                   <i class="fa fa-exclamation-circle" aria-hidden="true"></i> This field is required.</span>
-                </div>
               </div>
             </div>
-            <button class="btn btn-default"
-                    ng-disabled="bookingCtrl.pasengersForm.$invalid">Add
-            </button>
-          </form>
-        </div>
-
+          </div>
+          <button class="btn btn-default"
+                  ng-disabled="bookingCtrl.pasengersForm.$invalid">Add
+          </button>
+        </form>
       </div>
-      <div class="row section-block" ng-if="bookingCtrl.passengers.length">
-        <div class="col-md-12 col-md-12 col-sm-12 col-xs-12 section-heading">passengers</div>
-        <div class="col-md-12 col-md-12 col-sm-12 col-xs-12">
-          <div class="row">
-            <div class="col-lg-4 col-md-4">Name</div>
-            <div class="col-lg-4 col-md-4">Date of Birth</div>
-            <div class="col-lg-2 col-md-2">Weight</div>
-            <div class="col-lg-2 col-md-2">Seats</div>
-            <div class="row">
-            </div>
-            <div class="row" ng-repeat="passenger in bookingCtrl.passengers track by $index">
-              <div class="col-lg-4 col-md-4" ng-bind="passenger.name"></div>
-              <div class="col-lg-4 col-md-4" ng-bind="passenger.dob | date : 'MM/dd/yyyy'"></div>
-              <div class="col-lg-2 col-md-2" ng-bind="passenger.weight"></div>
-              <div class="col-lg-2 col-md-2" ng-bind="passenger.seats"></div>
-            </div>
+
+    </div>
+    <div class="row section-block" ng-if="bookingCtrl.passengers.length">
+      <div class="col-md-12 col-md-12 col-sm-12 col-xs-12 section-heading">passengers</div>
+      <div class="col-md-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="row">
+          <div class="col-lg-4 col-md-4">Name</div>
+          <div class="col-lg-4 col-md-2">Date of Birth</div>
+          <div class="col-lg-2 col-md-2">Weight</div>
+          <div class="col-lg-2 col-md-2">Seats</div>
+          <div class="col-lg-2 col-md-2">Edit</div>
+        </div>
+        <div class="row" ng-repeat="passenger in bookingCtrl.passengers track by $index">
+          <div class="col-lg-4 col-md-4" ng-bind="passenger.name"></div>
+          <div class="col-lg-4 col-md-2" ng-bind="passenger.dob | date : 'MM/dd/yyyy'"></div>
+          <div class="col-lg-2 col-md-2" ng-bind="passenger.weight"></div>
+          <div class="col-lg-2 col-md-2" ng-bind="passenger.seats"></div>
+          <div class="col-lg-2 col-md-2">
+            <button type="button" class="btn btn-default">
+              <span class="glyphicon glyphicon-exclamation-edit" aria-hidden="true"></span>
+            </button>
           </div>
         </div>
       </div>
-      <button class="btn btn-default" ng-click="bookingCtrl.saveFlight()">save flight</button>
-
-      <button class="btn btn-default" ui-sref="confirm">Continue</button>
     </div>
-
-
   </div>
+  <button class="btn btn-default" ng-click="bookingCtrl.saveFlight()">Save flight</button>
+
+  <button class="btn btn-default" ui-sref="confirm">Continue</button>
 </div>
