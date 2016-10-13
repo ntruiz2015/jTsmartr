@@ -54,9 +54,6 @@
       passengerSrv.addPassenger = function(passenger){
         passengerSrv.passengersList.push(passenger);
       };
-
-
-
       return passengerSrv;
     })
     .factory('bookingSrv', function () {
@@ -65,7 +62,6 @@
         this.passengers = passengers;
         this.flight = flight;
       };
-
       return bookingSrv;
     })
 
