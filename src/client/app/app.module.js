@@ -5,6 +5,7 @@
     'ui.bootstrap',
     'app.core',
     'app.booking',
-    'app.confirm'
+    'app.confirm',
+    'app.editPopUp'
   ])
 })();
