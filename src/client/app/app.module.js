@@ -6,6 +6,6 @@
     'app.core',
     'app.booking',
     'app.confirm',
-    'app.editPopUp'
+    'editPopUp'
   ])
 })();

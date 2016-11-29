@@ -122,7 +122,8 @@
                        ng-model="bookingCtrl.psgrName"
                        required ng-minlength="5"/>
 
-                <p ng-show="pasengersForm.psgrName.$error.minlength" class="help-block">Name is too short.</p></div>
+                <p ng-show="bookingCtrl.pasengersForm.psgrName.$error.minlength" class="help-block">Name is too
+                  short.</p></div>
 
             </div>
             <div class="form-group col-lg-6 col-md-6 col-sm-12 col-xs-12">
@@ -139,11 +140,7 @@
                 <button type="button" class="btn btn-default" ng-click="bookingCtrl.openDob($event)"><i
                   class="glyphicon glyphicon-calendar"></i></button>
               </span></div>
-
-                <!--<input type="date" id="psgrDOB" name="psgrDOB" class="form-control col-lg-9 col-md-9 col-sm-12 col-xs-12"-->
-                <!--ng-model="bookingCtrl.psgrDOB"-->
-                <!--required/>-->
-                <span class="error" ng-show="pasengersForm.psgrDOB.$error.date"> Not a valid date!</span>
+                <span class="error" ng-show="bookingCtrl.pasengersForm.psgrDOB.$error.date"> Not a valid date!</span>
 
               </div>
             </div>
@@ -155,8 +152,10 @@
                        class="form-control col-lg-9 col-md-9 col-sm-12 col-xs-12"
                        ng-model="bookingCtrl.psgrWeight" required min="20" max="400"/>
 
-                <span class="error" ng-show="pasengersForm.psgrWeight.$error.min">Minimum of 20 pounds required</span>
-                <span class="error" ng-show="pasengersForm.psgrWeight.$error.max">Maximum of 400 pounds allowed</span>
+                <span class="error"
+                      ng-show="bookingCtrl.pasengersForm.psgrWeight.$error.min">Min of 20 pounds required</span>
+                <span class="error"
+                      ng-show="bookingCtrl.pasengersForm.psgrWeight.$error.max">Max of 400 pounds allowed</span>
               </div>
             </div>
             <div class="form-group col-lg-6 col-md-6 col-sm-12 col-xs-12"
@@ -186,23 +185,31 @@
       <div class="col-md-12 col-md-12 col-sm-12 col-xs-12 section-heading">passengers</div>
       <div class="col-md-12 col-md-12 col-sm-12 col-xs-12">
         <div class="row">
-          <div class="col-lg-4 col-md-4">Name</div>
-          <div class="col-lg-4 col-md-2">Date of Birth</div>
+          <div class="col-lg-3 col-md-3">Name</div>
+          <div class="col-lg-3 col-md-3">Date of Birth</div>
           <div class="col-lg-2 col-md-2">Weight</div>
           <div class="col-lg-2 col-md-2">Seats</div>
           <div class="col-lg-2 col-md-2">Edit</div>
         </div>
         <div class="row" ng-repeat="passenger in bookingCtrl.passengers track by $index">
-          <div class="col-lg-4 col-md-4" ng-bind="passenger.name"></div>
-          <div class="col-lg-4 col-md-2" ng-bind="passenger.dob | date : 'MM/dd/yyyy'"></div>
+          <div class="col-lg-3 col-md-3" ng-bind="passenger.name"></div>
+          <div class="col-lg-3 col-md-3" ng-bind="passenger.dob | date : 'MM/dd/yyyy'"></div>
           <div class="col-lg-2 col-md-2" ng-bind="passenger.weight"></div>
           <div class="col-lg-2 col-md-2" ng-bind="passenger.seats"></div>
           <div class="col-lg-2 col-md-2">
-            <button type="button" class="btn btn-default">
-              <span class="glyphicon glyphicon-exclamation-edit" aria-hidden="true"></span>
-            </button>
+            <edit-pop-up passenger-copy="passenger">
+              <a href="#">EditButton</a>
+            </edit-pop-up>
           </div>
+
         </div>
+        <div class="row">
+        <div class="col-lg-12 cold-md-12">
+          <button type="button" class="btn btn-default">Save
+            <span class="glyphicon glyphicon-exclamation-edit" aria-hidden="true"></span>
+          </button>
+        </div>
+      </div>
       </div>
     </div>
   </div>

@@ -1,18 +1,18 @@
-<div class="row section-block">
-  <div class="col-md-12 col-md-12 col-sm-12 col-xs-12 section-heading">passengers</div>
-  <div class="col-md-12 col-md-12 col-sm-12 col-xs-12">
-    <div class="row">
-      <div class="col-lg-4 col-md-4">Name</div>
-      <div class="col-lg-4 col-md-4">Date of Birth</div>
-      <div class="col-lg-2 col-md-2">Weight</div>
-      <div class="col-lg-2 col-md-2">Seats</div>
-    </div>
-    <div class="row" ng-repeat="passenger in confirmCtrl.passengers">
-      <div class="col-lg-4 col-md-4" ng-bind="passenger.name"></div>
-      <div class="col-lg-4 col-md-4" ng-bind="passenger.dob | date : 'MM/dd/yyyy'"></div>
-      <div class="col-lg-2 col-md-2" ng-bind="passenger.weight"></div>
-      <div class="col-lg-2 col-md-2" ng-bind="passenger.seats"></div>
-    </div>
+<div class="section-heading">passengers</div>
+<div class="row">
+  <div class="col-lg-12 col-md-12">
+    <div class="col-lg-4 col-md-4">Name</div>
+    <div class="col-lg-4 col-md-4">Date of Birth</div>
+    <div class="col-lg-2 col-md-2">Weight</div>
+    <div class="col-lg-2 col-md-2">Seats</div>
   </div>
+  <div class="col-lg-12 col-md-12">
+    <input class="col-lg-4 col-md-4" ng-model="editPopUpCtrl.passenger.name"/>
+    <input class="col-lg-4 col-md-4" ng-model="editPopUpCtrl.passenger.dob | date : 'MM/dd/yyyy'"/>
+    <input class="col-lg-2 col-md-2" ng-model="editPopUpCtrl.passenger.weight"/>
+    <input class="col-lg-2 col-md-2" ng-model="editPopUpCtrl.passenger.seats"/>
+  </div>
+  <button class="btn btn-defult" ng-click="editPopUpCtrl.updatePassenger()">Save</button>
+  <button class="btn btn-defult" ng-click="editPopUpCtrl.modalInstance.close()">Close</button>
 </div>
-</div>
+

@@ -28,7 +28,7 @@
     bookingCtrl.showButtonBar = false;
     bookingCtrl.openDateOfB = false;
     bookingCtrl.getId = getId;
-    bookingCtrl.updatePassenger = updatePassenger;
+    //bookingCtrl.updatePassenger = updatePassenger;
     bookingCtrl.PssgCopy;
 
     function getId(min, max) {
@@ -36,6 +36,7 @@
       max = Math.floor(max);
       return Math.floor(Math.random() * (max - min)) + min;
     }
+
     bookingCtrl.dateOptions = {
       formatYear: 'yy',
       maxDate: new Date(2020, 5, 22),
@@ -90,6 +91,7 @@
         var passng = new passengerSrv.passengerObj(id, bookingCtrl.psgrName, bookingCtrl.psgrDOB, bookingCtrl.psgrWeight,
           bookingCtrl.psgrSeats);
         passengerSrv.addPassenger(passng);
+        console.log(passengerSrv.passengersList);
         bookingCtrl.psgrName = null;
         bookingCtrl.psgrDOB = null;
         bookingCtrl.psgrWeight = null;
@@ -97,6 +99,7 @@
         bookingCtrl.submitted = true;
       }
       bookingCtrl.pasengersForm.$setPristine();
+
     };
 
     function saveFlight() {
@@ -104,10 +107,6 @@
         bookingCtrl.departDate, bookingCtrl.arrivDate, bookingCtrl.allowed);
     }
 
-    function updatePassenger(passenger) {
-
-
-    }
 
 
   }

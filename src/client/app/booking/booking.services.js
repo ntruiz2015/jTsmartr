@@ -42,8 +42,11 @@
     })
     .factory('passengerSrv', function () {
       var passengerSrv = {};
+      passengerSrv.passenger;
       passengerSrv.passengersList = [];
-      passengerSrv.passengerObj = function (id, name, dob, weight, seats){
+      passengerSrv.updatePassenger = updatePassenger;
+      passengerSrv.editPassenger = editPassenger;
+      passengerSrv.passengerObj = function (id, name, dob, weight, seats) {
         this.id = id;
         this.name = name;
         this.dob = new Date(dob);
@@ -51,9 +54,27 @@
         this.seats = seats;
       };
 
-      passengerSrv.addPassenger = function(passenger){
+      passengerSrv.addPassenger = function (passenger) {
         passengerSrv.passengersList.push(passenger);
       };
+
+      function editPassenger(extPassenger) {
+        passengerSrv.passenger.name = extPassenger.name;
+        passengerSrv.passenger.weight = extPassenger.weight;
+        passengerSrv.passenger.seat = extPassenger.seat;
+        passengerSrv.passenger.dob = extPassenger.dob;
+      }
+
+      function updatePassenger(extPassenger) {
+        for (var i = 0; i < passengerSrv.passengersList.length; i++) {
+          if (passengerSrv.passengersList[i].id === extPassenger.id) {
+            passengerSrv.passengersList.splice(i, 1, extPassenger);
+          }
+          else
+            continue;
+        }
+      }
+
       return passengerSrv;
     })
     .factory('bookingSrv', function () {
@@ -65,5 +86,4 @@
       return bookingSrv;
     })
 
-
-})();
+}());
