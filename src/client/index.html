@@ -10,13 +10,15 @@
       display: none!important;
     }
   </style>
-  <title ng-bind="title">
-    jetsmarter
-  </title>
+  <title ng-bind="title">Revelex - FE - NR</title>
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
   <base href="/">
+
+
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+
 
   <!-- build:css styles/lib.css -->
   <!-- bower:css -->
@@ -34,8 +36,7 @@
 
 <body>
 
-<div  ui-view="mainMenu"></div>
-<div class="container" ui-view="main"></div>
+<div class="container no-padding" ui-view="main"></div>
 
   <!-- build:js js/lib.js -->
   <!-- bower:js -->
@@ -64,6 +65,7 @@
   <script src="/src/client/app/confirm/confirm.module.js"></script>
   <script src="/src/client/app/core/core.module.js"></script>
   <script src="/src/client/app/edit/editPopUp.module.js"></script>
+  <script src="/src/client/app/main/main.module.js"></script>
   <script src="/src/client/app/blocks/exception/exception-handler.provider.js"></script>
   <script src="/src/client/app/blocks/exception/exception.js"></script>
   <script src="/src/client/app/blocks/logger/logger.js"></script>
@@ -76,6 +78,8 @@
   <script src="/src/client/app/core/core.route.js"></script>
   <script src="/src/client/app/core/dataservice.js"></script>
   <script src="/src/client/app/edit/editPopUp.js"></script>
+  <script src="/src/client/app/main/main.controller.js"></script>
+  <script src="/src/client/app/main/main.services.js"></script>
   <!-- endinject -->
 
   <!-- inject:templates:js -->

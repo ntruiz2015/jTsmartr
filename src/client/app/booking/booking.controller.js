@@ -29,7 +29,7 @@
     bookingCtrl.openDateOfB = false;
     bookingCtrl.getId = getId;
     //bookingCtrl.updatePassenger = updatePassenger;
-    bookingCtrl.PssgCopy;
+    bookingCtrl.PssgCopy = undefined;
 
     function getId(min, max) {
       min = Math.ceil(min);
@@ -88,7 +88,8 @@
     bookingCtrl.SavePassenger = function () {
       var id = bookingCtrl.getId(1, 200);
       if (bookingCtrl.psgrName && bookingCtrl.psgrDOB && bookingCtrl.psgrWeight && bookingCtrl.psgrSeats) {
-        var passng = new passengerSrv.passengerObj(id, bookingCtrl.psgrName, bookingCtrl.psgrDOB, bookingCtrl.psgrWeight,
+        var passng = new passengerSrv.passengerObj(id, bookingCtrl.psgrName,
+          bookingCtrl.psgrDOB, bookingCtrl.psgrWeight,
           bookingCtrl.psgrSeats);
         passengerSrv.addPassenger(passng);
         console.log(passengerSrv.passengersList);
@@ -103,7 +104,8 @@
     };
 
     function saveFlight() {
-      bookingCtrl.flight = new flightSrv.flightObj(bookingCtrl.departAirportSelected, bookingCtrl.arrivalAirportSelected,
+      bookingCtrl.flight = new flightSrv.flightObj(bookingCtrl.departAirportSelected,
+        bookingCtrl.arrivalAirportSelected,
         bookingCtrl.departDate, bookingCtrl.arrivDate, bookingCtrl.allowed);
     }
 

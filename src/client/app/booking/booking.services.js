@@ -6,7 +6,7 @@
 
   angular
     .module('app.booking')
-    .factory('airportsSrv', function ($http) {
+    .factory('airportsSrv', function ($http, $q) {
       var airportsSrv = {};
       var URLS = {
         FETCH: 'data/airports.json'
@@ -15,16 +15,16 @@
 
       airportsSrv.getData = function (remoteData) {
         return remoteData.data;
-      }
+      };
 
       airportsSrv.cacheAirports = function (remoteData) {
         airports = airportsSrv.getData(remoteData);
         return airports;
-      }
+      };
 
       airportsSrv.getAirports = function () {
         return (airports) ? $q.when(airports) : $http.get(URLS.FETCH).then(airportsSrv.cacheAirports);
-      }
+      };
       return airportsSrv;
 
     })
@@ -42,7 +42,7 @@
     })
     .factory('passengerSrv', function () {
       var passengerSrv = {};
-      passengerSrv.passenger;
+      passengerSrv.passenger = undefined;
       passengerSrv.passengersList = [];
       passengerSrv.updatePassenger = updatePassenger;
       passengerSrv.editPassenger = editPassenger;
@@ -70,8 +70,9 @@
           if (passengerSrv.passengersList[i].id === extPassenger.id) {
             passengerSrv.passengersList.splice(i, 1, extPassenger);
           }
-          else
+          else {
             continue;
+          }
         }
       }
 
@@ -84,6 +85,6 @@
         this.flight = flight;
       };
       return bookingSrv;
-    })
+    });
 
 }());

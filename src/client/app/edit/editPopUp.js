@@ -3,7 +3,10 @@
  */
 
 (function () {
-  'use strict'
+  'use strict';
+
+  /* jshint -W101,-W072*/
+
   angular
     .module('editPopUp')
     .component('editPopUp', {
@@ -24,8 +27,8 @@
   function EditPopUpCtrl($scope, $modalInstance, passengerSrv) {
     var editPopUpCtrl = this;
 
-    editPopUpCtrl.passenger;
-    editPopUpCtrl.passengerCopy;
+    editPopUpCtrl.passenger = undefined;
+    editPopUpCtrl.passengerCopy = undefined;
     editPopUpCtrl.copyPassenger = copyPassenger;
     editPopUpCtrl.editPassenger = editPassenger;
     editPopUpCtrl.updatePassenger = updatePassenger;

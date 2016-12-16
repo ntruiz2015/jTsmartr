@@ -3,8 +3,7 @@
 
   angular
     .module('app.core')
-    .run(appRun)
-
+    .run(appRun);
 
   /* @ngInject */
   function appRun(routerHelper) {
@@ -15,40 +14,19 @@
   function getStates() {
     return [
       {
-        state: 'booking',
-        title: 'Booking',
+        state: 'main',
+        title: 'Main',
         config: {
           url: '/',
           views: {
-            'mainMenu':{
-              templateUrl: 'app/header.html'
-            },
             'main': {
-              templateUrl: 'app/booking/booking.html',
-              controller: 'BookingController as bookingCtrl'
-
+              templateUrl: 'app/main/main.html',
+              controller: 'MainController as mainCtrl'
             }
           }
 
-        }
-      },
-      {
-        state: 'confirm',
-        title: 'confirm',
-        config: {
-          url: '/confirm',
-          views: {
-            'mainMenu':{
-              templateUrl: 'app/header.html'
-            },
-            'main': {
-              templateUrl: 'app/confirm/confirm.html',
-              controller: 'ConfirmController as confirmCtrl'
-            }
-          }
         }
       }
-
     ];
   }
 })();

@@ -1,27 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding">
-    <file url="file://$PROJECT_DIR$/.tmp/templates.js" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/client/app/Directives/custompopover.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/bower.json" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/gulpfile.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/report/coverage/report-lcov/lcov.info" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/client/app/app.module.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/client/app/booking/booking.controller.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/client/app/booking/booking.html" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/client/app/booking/booking.module.js" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/client/app/booking/booking.route.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/client/app/booking/booking.services.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/client/app/confirm/confirm.controller.js" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/client/app/confirm/confirm.controller.spec.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/client/app/confirm/confirm.html" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/client/app/confirm/confirm.module.js" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/client/app/confirm/confirm.route.js" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/client/app/confirm/confirm.route.spec.js" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/client/app/confirm/package.json" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/client/app/core/config.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/client/app/core/core.module.js" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/client/app/header/header.controller.js" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/client/app/header/header.controller.spec.js" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/client/app/header/header.html" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/client/app/header/header.module.js" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/client/app/header/header.route.js" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/client/app/header/header.route.spec.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/client/app/core/core.route.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/client/app/edit/editPopUp.html" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/client/app/edit/editPopUp.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/client/app/edit/editPopUp.module.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/client/app/header.html" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/client/app/main/main.controller.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/client/app/main/main.html" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/client/app/main/main.module.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/client/app/main/main.services.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/client/data/ships.json" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/client/styles/styles.less" charset="UTF-8" />
   </component>
 </project>

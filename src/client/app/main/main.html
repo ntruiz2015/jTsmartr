@@ -1,0 +1,63 @@
+<div class="container">
+  <div class="row">
+    <!--{{mainCtrl.ships | json}}-->
+    <h1 class="col-lg-4 col-md-4 col-sm-5 col-xs-12">Choose Your Sailings </h1>
+    <h4 class="col-lg-3 col-md-3 col-sm-3 col-xs-12">(Pick one for each box)</h4>
+
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      <div class="row" id="ships-row">
+        <div class="ship-col-container col-lg-4 col-md-4" ng-repeat="cruise_sailing in mainCtrl.cruise_lines">
+          <div class="ship-spec">
+            <div class="price">
+              <p class="price-desc">Starting at</p>
+
+              <p class="price-amt"
+                 ng-bind="::(mainCtrl.getLowestSailingPrice(cruise_sailing.sailings[0]).sailing_price) | currency :'$':0"></p>
+            </div>
+            <div class="row">
+              <div class="col-md-12 col-sm-5 col-xs-12">
+                <div class="ship-spec-image"></div>
+              </div>
+              <div class="col-md-12 col-sm-7 col-xs-12">
+                <div class="ship-spec-descrip" ng-class="'ship-spec-descrip'">
+                  <div class="line-cruise-name">
+                    <span ng-bind="cruise_sailing.cruise_line_name + ' - '"></span>
+                    <span ng-bind="cruise_sailing.cruise_ship_name"></span>
+                  </div>
+
+                  <h3 class="cruise-title" ng-bind="cruise_sailing.sailings[0].sailing_name"></h3>
+
+                  <div class="radio" ng-repeat="option in cruise_sailing.sailings[0].sailing_options">
+                    <label>
+                      <input type="radio" ng-model="option.checked" ng-value="true"
+                             ng-change="mainCtrl.checkSailing(cruise_sailing.sailings[0].sailing_options, option)"
+                             name="option_{{cruise_sailing.sailings[0].sailing_name}}">
+                      {{option.sailing_date}}</label>
+
+                    <div class="sailing-date-price" ng-bind="option.sailing_price  | currency :'$':0"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container no-padding">
+  <div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      <div class="total-spec">
+        <div class="row">
+          <div class="col-lg-10 col-md-10 col-sm-8 col-xs-6">
+            <h2>Your Selected Sailings Total </h2>
+          </div>
+          <div class="col-lg-2 col-md-2 col-sm-4 col-xs-6">
+            <div class="price" ng-bind="mainCtrl.selectedSailingsTotal() | currency :'$':0"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

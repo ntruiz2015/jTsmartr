@@ -1,219 +1,156 @@
-<div class="row">
-  <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-12 col-xs 12">
-    <div class="row section-block">
-      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 section-heading">FLIGHT</div>
-      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-        <div class="row">
-          <div class="form-group col-lg-6 col-md-6 col-sm-12 col-xs-12">
-            <label for="departure-airport" class="col-lg-3 col-md-3 col-sm-12 col-xs-12">From</label>
-            <select class="form-control col-lg-9 col-md-9 col-sm-12 col-xs-12" id="departure-airport"
-                    ng-model="bookingCtrl.departAirportSelected"
-                    ng-options="airport.name for airport in bookingCtrl.airports"
-                    ng-change="bookingCtrl.repopulate(bookingCtrl.departAirportSelected)"> </select>
 
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-              <p>City: {{bookingCtrl.departAirportSelected.city}} </p>
+<div class="container">
+  <div class="row">
+    <h1 class="col-lg-9 col-md-9 col-sm-9 col-xs-12">Choose Your Sailings </h1>
+    <h4 class="col-lg-3 col-md-3 col-sm-3 col-xs-12">(Pick one for each box)</h4>
 
-              <p>State: {{bookingCtrl.departAirportSelected.state}} </p>
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      <div class="row" id="ships-row">
+        <div class="ship-col-container col-lg-4 col-md-4">
+          <div class="ship-spec">
+            <div class="price">
+              <p class="price-desc">Starting at</p>
+
+              <p class="price-amt">$128</p>
             </div>
-          </div>
-
-          <div class="form-group col-lg-6 col-md-6 col-sm-12 col-xs-12">
-            <label for="arrival-airport" class="col-lg-3 col-md-3 col-sm-12 col-xs-12">To</label>
-            <!--<select class="form-control" id="arrival-airport" ng-model="bookingCtrl.arrivalAirportSelected"-->
-            <!--ng-options="airport.name for airport in bookingCtrl.airports | filter : { name : '!' + bookingCtrl.departAirportSelected.name}">-->
-            <!--</select>--> <select class="form-control col-lg-9 col-md-9 col-sm-12 col-xs-12" id="arrival-airport"
-                                     ng-model="bookingCtrl.arrivalAirportSelected"
-                                     ng-options="airport.name for airport in bookingCtrl.airportsRepopulated"> </select>
-
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"><p>City:
-              {{bookingCtrl.arrivalAirportSelected.city}} </p>
-
-              <p>State: {{bookingCtrl.arrivalAirportSelected.state}} </p></div>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-        <div class="row">
-          <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-            <div class="form-group">
-              <label for="departure-date" class="col-lg-3 col-md-3 col-sm-12 col-xs-12">Departing</label>
-
-              <div class="input-group">
-                <input type="text" class="form-control" uib-datepicker-popup="MM/dd/yyyy"
-                       ng-model="bookingCtrl.departDate"
-                       id="departure-date"
-                       name="departure-date"
-                       is-open="bookingCtrl.openDepart"
-                       datepicker-options="bookingCtrl.dateOptions" ng-required="true"
-                       class="form-control col-lg-9 col-md-9 col-sm-12 col-xs-12"/>
-                <span class="input-group-btn">
-                <button type="button" class="btn btn-default" ng-click="bookingCtrl.openDep($event)"><i
-                  class="glyphicon glyphicon-calendar"></i></button>
-                </span>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-            <div class="form-group"><label for="arrival-date"
-                                           class="col-lg-3 col-md-3 col-sm-12 col-xs-12">Arrival</label>
-
-              <div class="input-group" class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
-                <input type="text" class="form-control" uib-datepicker-popup="MM/dd/yyyy"
-                       ng-model="bookingCtrl.arrivDate"
-                       id="arrival-date"
-                       name="arrival-date"
-                       is-open="bookingCtrl.openArrival"
-                       datepicker-options="bookingCtrl.dateOptions" ng-required="true"
-                       class="form-control"/>
-            <span class="input-group-btn">
-                <button type="button" class="btn btn-default" ng-click="bookingCtrl.openArriv($event)"><i
-                  class="glyphicon glyphicon-calendar"></i></button>
-              </span>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 padding-left">
             <div class="row">
-              <div class="form-group col-lg-5 col-md-5 col-sm-12 col-xs-12">
-                <label for="adultsNumber">Adults(18+)</label>
-                <select id="adultsNumber" ng-model="bookingCtrl.adultsNumber"
-                        ng-change="bookingCtrl.passengersAllowed()">
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                  <option>5</option>
-                  <option>6</option>
-                </select>
+              <div class="col-md-12 col-sm-5 col-xs-12">
+                <div class="ship-spec-image"></div>
               </div>
-              <div class="form-group col-lg-5 col-md-5 col-sm-12 col-xs-12">
-                <label for="childrenNumber">Children(0-17)</label>
-                <select id="childrenNumber" ng-model="bookingCtrl.childrenNumber"
-                        ng-change="bookingCtrl.passengersAllowed()">
-                  <option>0</option>
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                  <option>5</option>
-                  <option>6</option>
-                </select>
+              <div class="col-md-12 col-sm-7 col-xs-12">
+                <div class="ship-spec-descrip">
+                  <p class="line-cruise-name">Line Name - Cruise Name</p>
+
+                  <h3 class="cruise-title">Cruise Sailing Title</h3>
+
+                  <div class="radio">
+                    <label>
+                      <input type="radio" name="optradio">
+                      Sailing Date 1</label>
+
+                    <div class="sailing-date-price">$price</div>
+                  </div>
+                  <div class="radio">
+                    <label>
+                      <input type="radio" name="optradio">
+                      Sailing Date 2</label>
+
+                    <div class="sailing-date-price">$price</div>
+                  </div>
+                  <div class="radio">
+                    <label>
+                      <input type="radio" name="optradio">
+                      Sailing Date 3</label>
+
+                    <div class="sailing-date-price">$price</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="ship-col-container col-lg-4 col-md-4">
+          <div class="ship-spec">
+            <div class="price">
+              <p class="price-desc">Starting at</p>
+
+              <p class="price-amt">$128</p>
+            </div>
+            <div class="row">
+              <div class="col-md-12 col-sm-5 col-xs-12">
+                <div class="ship-spec-image"></div>
+              </div>
+              <div class="col-md-12 col-sm-7 col-xs-12">
+                <div class="ship-spec-descrip">
+                  <p class="line-cruise-name">Line Name - Cruise Name</p>
+
+                  <h3 class="cruise-title">Cruise Sailing Title</h3>
+
+                  <div class="radio">
+                    <label>
+                      <input type="radio" name="optradio">
+                      Sailing Date 1</label>
+
+                    <div class="sailing-date-price">$price</div>
+                  </div>
+                  <div class="radio">
+                    <label>
+                      <input type="radio" name="optradio">
+                      Sailing Date 2</label>
+
+                    <div class="sailing-date-price">$price</div>
+                  </div>
+                  <div class="radio">
+                    <label>
+                      <input type="radio" name="optradio">
+                      Sailing Date 3</label>
+
+                    <div class="sailing-date-price">$price</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="ship-col-container col-lg-4 col-md-4">
+          <div class="ship-spec">
+            <div class="price">
+              <p class="price-desc">Starting at</p>
+
+              <p class="price-amt">$128</p>
+            </div>
+            <div class="row">
+              <div class="col-md-12 col-sm-5 col-xs-12">
+                <div class="ship-spec-image"></div>
+              </div>
+              <div class="col-md-12 col-sm-7 col-xs-12">
+                <div class="ship-spec-descrip">
+                  <p class="line-cruise-name">Line Name - Cruise Name</p>
+
+                  <h3 class="cruise-title">Cruise Sailing Title</h3>
+
+                  <div class="radio">
+                    <label>
+                      <input type="radio" name="optradio">
+                      Sailing Date 1</label>
+
+                    <div class="sailing-date-price">$price</div>
+                  </div>
+                  <div class="radio">
+                    <label>
+                      <input type="radio" name="optradio">
+                      Sailing Date 2</label>
+
+                    <div class="sailing-date-price">$price</div>
+                  </div>
+                  <div class="radio">
+                    <label>
+                      <input type="radio" name="optradio">
+                      Sailing Date 3</label>
+
+                    <div class="sailing-date-price">$price</div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="row section-block"
-         ng-if="(bookingCtrl.passengers.length < bookingCtrl.allowed) && bookingCtrl.allowed">
-      <div class="col-md-12 col-md-12 col-sm-12 col-xs-12 section-heading">add passengers</div>
-      <div class="col-md-12 col-md-12 col-sm-12 col-xs-12">
-        <form novalidate name="bookingCtrl.pasengersForm"
-              class="form-horizontal col-lg-12 col-md-12 col-sm-12 col-xs-12"
-              ng-submit="bookingCtrl.SavePassenger();">
 
-          <div class="row">
-            <div class="form-group col-lg-6 col-md-6 col-sm-12 col-xs-12">
-              <div class="row"><label for="psgrName" class="col-lg-3 col-md-3 col-sm-12 col-xs-12">Name</label>
-                <input type="text" id="psgrName" name="psgrName"
-                       class="form-control col-lg-9 col-md-9 col-sm-12 col-xs-12"
-                       ng-model="bookingCtrl.psgrName"
-                       required ng-minlength="5"/>
-
-                <p ng-show="bookingCtrl.pasengersForm.psgrName.$error.minlength" class="help-block">Name is too
-                  short.</p></div>
-
-            </div>
-            <div class="form-group col-lg-6 col-md-6 col-sm-12 col-xs-12">
-              <div class="input-group">
-                <label for="psgrDOB">DOB</label>
-
-                <div class="input-group"><input type="text" class="form-control" uib-datepicker-popup="MM/dd/yyyy"
-                                                ng-model="bookingCtrl.psgrDOB"
-                                                is-open="bookingCtrl.openDateOfB"
-                                                datepicker-options="bookingCtrl.dateOptions" ng-required="true"
-                                                close-text="Close" id="psgrDOB" name="psgrDOB"
-                                                class="form-control"/>
-              <span class="input-group-btn">
-                <button type="button" class="btn btn-default" ng-click="bookingCtrl.openDob($event)"><i
-                  class="glyphicon glyphicon-calendar"></i></button>
-              </span></div>
-                <span class="error" ng-show="bookingCtrl.pasengersForm.psgrDOB.$error.date"> Not a valid date!</span>
-
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="form-group col-lg-6 col-md-6 col-sm-12 col-xs-12">
-              <div class="row"><label for="psgrWeight" class="col-lg-3 col-md-3 col-sm-12 col-xs-12">Weight</label>
-                <input type="number" id="psgrWeight" name="psgrWeight"
-                       class="form-control col-lg-9 col-md-9 col-sm-12 col-xs-12"
-                       ng-model="bookingCtrl.psgrWeight" required min="20" max="400"/>
-
-                <span class="error"
-                      ng-show="bookingCtrl.pasengersForm.psgrWeight.$error.min">Min of 20 pounds required</span>
-                <span class="error"
-                      ng-show="bookingCtrl.pasengersForm.psgrWeight.$error.max">Max of 400 pounds allowed</span>
-              </div>
-            </div>
-            <div class="form-group col-lg-6 col-md-6 col-sm-12 col-xs-12"
-                 ng-class="{'has-error' : bookingCtrl.pasengersForm.psgrWeight.$invalid && !bookingCtrl.pasengersForm.psgrWeight.$pristine
-                   && submitted}">
-              <label for="psgrSeats" class="col-lg-3 col-md-3 col-sm-12 col-xs-12">Seats</label>
-              <input type="text" id="psgrSeats" name="psgrSeats"
-                     class="form-control col-lg-9 col-md-9 col-sm-12 col-xs-12"
-                     ng-model="bookingCtrl.psgrSeats"
-                     required/>
-
-              <div
-                ng-show="bookingCtrl.pasengersForm.psgrSeats.$invalid && !bookingCtrl.pasengersForm.psgrSeats.$pristine">
-                  <span>
-                  <i class="fa fa-exclamation-circle" aria-hidden="true"></i> This field is required.</span>
-              </div>
-            </div>
-          </div>
-          <button class="btn btn-default"
-                  ng-disabled="bookingCtrl.pasengersForm.$invalid">Add
-          </button>
-        </form>
-      </div>
-
-    </div>
-    <div class="row section-block" ng-if="bookingCtrl.passengers.length">
-      <div class="col-md-12 col-md-12 col-sm-12 col-xs-12 section-heading">passengers</div>
-      <div class="col-md-12 col-md-12 col-sm-12 col-xs-12">
-        <div class="row">
-          <div class="col-lg-3 col-md-3">Name</div>
-          <div class="col-lg-3 col-md-3">Date of Birth</div>
-          <div class="col-lg-2 col-md-2">Weight</div>
-          <div class="col-lg-2 col-md-2">Seats</div>
-          <div class="col-lg-2 col-md-2">Edit</div>
+  </div>
+</div>
+<div class="container-fluid">
+  <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-12 col-xs-12">
+    <div class="total-spec">
+      <div class="row">
+        <div class="col-lg-10 col-md-10 col-sm-8 col-xs-6">
+          <h2>Your Selected Sailings Total </h2>
         </div>
-        <div class="row" ng-repeat="passenger in bookingCtrl.passengers track by $index">
-          <div class="col-lg-3 col-md-3" ng-bind="passenger.name"></div>
-          <div class="col-lg-3 col-md-3" ng-bind="passenger.dob | date : 'MM/dd/yyyy'"></div>
-          <div class="col-lg-2 col-md-2" ng-bind="passenger.weight"></div>
-          <div class="col-lg-2 col-md-2" ng-bind="passenger.seats"></div>
-          <div class="col-lg-2 col-md-2">
-            <edit-pop-up passenger-copy="passenger">
-              <a href="#">EditButton</a>
-            </edit-pop-up>
-          </div>
-
+        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-6">
+          <div class="price">$total</div>
         </div>
-        <div class="row">
-        <div class="col-lg-12 cold-md-12">
-          <button type="button" class="btn btn-default">Save
-            <span class="glyphicon glyphicon-exclamation-edit" aria-hidden="true"></span>
-          </button>
-        </div>
-      </div>
       </div>
     </div>
   </div>
-  <button class="btn btn-default" ng-click="bookingCtrl.saveFlight()">Save flight</button>
-
-  <button class="btn btn-default" ui-sref="confirm">Continue</button>
 </div>
